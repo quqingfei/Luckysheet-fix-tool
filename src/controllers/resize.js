@@ -133,11 +133,12 @@ export default function luckysheetsizeauto(isRefreshCanvas=true) {
     if(toobarWidths == undefined){
         return;
     }
+    let containerLeft = $('#' + Store.container).offset().left
     // 找到应该隐藏的起始元素位置
     for (let index = toobarWidths.length - 1; index >= 0; index--) {
 
         // #luckysheet-icon-morebtn button width plus right is 83px
-        if(toobarWidths[index] < gridW - 90){
+        if(toobarWidths[index] - containerLeft < gridW - 90){
             moreButtonIndex = index;
             if(moreButtonIndex < toobarWidths.length - 1){
 
@@ -609,3 +610,4 @@ function customStatisticBarConfig() {
         Store.statisticBarHeight = 23;
     }
 }
+
